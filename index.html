@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Leap Year checker</h3>
+    <label for="inPutYear">Enter ayear</label>
+    <input type="number" id="inputYear">
+    <button type="button" onclick="leapYear()" >checkLeapYear</button>
+    <p id="result"></p>
+
+
+
+    <br>
+    <br>
+    
+    
+
+
+
+    <br>
+    <br>
+    <h3>Years when 1st January is a Sunday</h3>
+    <button type="button" onclick="findYear()">Find Year</button>
+    <p id="result1"></p>
+<br>
+<br>
+<button type="button" onclick="evenOdd()">even/odd</button>
+<p id="result2"></p>
+
+<br>
+<br>
+<h3>Palindrome Checker</h3>
+    <input type="text" id="input-place" >
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="result3"></p>
+
+
+
+
+
+
+
+<script>
+    function leapYear(){
+        let year=parseInt(document.getElementById("inputYear").value);
+        if((year % 4 === 0 && year % 100 !==0) ||(year % 400 ===0)  ){document.getElementById("result").innerHTML= year +"is a leap year";} else{ document.getElementById("result").innerHTML= year +" is not a leap year";}
+
+ }
+ function findYear(){
+ let result="";
+
+    for(
+        let year= 2014; year<=2050; year ++
+    ){ 
+        let date= new Date(year,0,1)
+        if(date.getDay() ===0 ){
+            result+= year+"<br>";
+        }
+    }
+    document.getElementById("result1").innerHTML=result;
+ }
+
+
+
+
+
+
+    function evenOdd(){
+        let result2="";
+        for( let i=0; i<=15;i++){
+            if(i%2===0){ 
+            result2 +=i+" is even<br>";
+            } else{ result2 += i + " is odd <br>";}
+        }
+        document.getElementById("result2").innerHTML= result2;
+    }
+
+    function isPalindrome(str) {
+          
+          let cleanedStr = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+         
+          let reversedStr = cleanedStr.split('').reverse().join('');
+        
+          return cleanedStr === reversedStr;
+      }
+
+      function checkPalindrome() {
+          let input = document.getElementById("input-place").value;
+         
+          let result = isPalindrome(input);
+         
+          if (result) {
+              document.getElementById("result3").innerHTML = "The string is a palindrome.";
+          } else {
+              document.getElementById("result3").innerHTML = "The string is not a palindrome.";
+          }
+      }
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>
